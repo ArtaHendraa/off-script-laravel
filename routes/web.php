@@ -6,6 +6,14 @@ use App\Http\Controllers\ProductController;
 
 // Route::get("/", [CategoryController::class, "index"]);
 Route::get("/", [ProductController::class, "index"]);
-Route::get("/product/{slug}", [ProductController::class, "show"])->name(
+
+Route::redirect("/products", "/products/category/all");
+Route::redirect("/products/category", "/products/category/all");
+Route::get("products/category/{type_slug}", [
+    ProductController::class,
+    "indexProduct",
+]);
+
+Route::get("/products/{slug}", [ProductController::class, "show"])->name(
     "product.product-detail.show",
 );

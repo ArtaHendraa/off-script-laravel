@@ -7,7 +7,7 @@
       <h2>
         <a href="/">Home</a>
         <span>/</span>
-        <span class="cursor-not-allowed">Product</span>
+        <a href="/products">Products</a>
         <span>/</span>
         <a href="{{ $product['slug'] }}">{{ $product['name'] }}</a>
       </h2>
@@ -22,11 +22,19 @@
       </div>
 
       <div class="max-w-1/2 w-full flex flex-col gap-5">
-        <div>
-          <h1 class="capitalize text-4xl font-semibold mt-1 text-nowrap overflow-hidden text-ellipsis">
+        <div class="flex flex-col gap-y-1">
+          <h1 class="capitalize text-4xl font-semibold">
             {{ $product['name'] }}
           </h1>
           <h2 class="capitalize text-sm font-light opacity-50 font-[Roboto_Mono]">{{ $product['type'] }}</h2>
+          <h2 class="capitalize text-sm font-light opacity-50 font-[Roboto_Mono]">
+            Stock:
+            @if ($product['stock'] == 0)
+              <span class="bg-red-500 px-1">Sold Out</span>
+            @else
+              <span>{{ $product['stock'] }}</span>
+            @endif
+          </h2>
           <h2 class="font-[Roboto_Mono] text-lg">Rp.{{ number_format($product['price'], 0, ',', '.') }}</h2>
         </div>
 

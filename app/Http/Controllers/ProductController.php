@@ -18,6 +18,7 @@ class ProductController extends Controller
             "slug" => "fully-embroidered-sweater",
             "price" => 1015000,
             "type" => "Hoodie / Sweater",
+            "type_slug" => "hoodie-or-sweater",
             "sizes" => ["S", "M", "L", "XL", "XXL"],
             "image" => "/product_image/14.webp",
             "description" => [
@@ -29,13 +30,17 @@ class ProductController extends Controller
                     "Color: Dark Green",
                 ],
             ],
+            "stock" => 22,
+            "best_seller" => true,
         ],
+
         [
             "id" => 2,
             "name" => "T-Shirt - Aira & Scrambled Egg Recipe",
-            "slug" => "t-shirt-aira-scrambled-egg-recipe",
+            "slug" => "t-shirt-aira-and-scrambled-egg-recipe",
             "price" => 229000,
             "type" => "Shirts",
+            "type_slug" => "shirts",
             "sizes" => ["S", "M", "L", "XL", "XXL"],
             "image" => "/product_image/2.webp",
             "description" => [
@@ -49,13 +54,17 @@ class ProductController extends Controller
                     "Color: White",
                 ],
             ],
+            "stock" => 0,
+            "best_seller" => false,
         ],
+
         [
             "id" => 3,
             "name" => "White Short Sleeve Collar Shirt - Aira No.2",
             "slug" => "white-short-sleeve-collar-shirt-aira-no-2",
             "price" => 350000,
             "type" => "Shirts",
+            "type_slug" => "shirts",
             "sizes" => ["S", "M", "L", "XL", "XXL"],
             "image" => "/product_image/3.webp",
             "description" => [
@@ -67,13 +76,17 @@ class ProductController extends Controller
                     "Color: White.",
                 ],
             ],
+            "stock" => 25,
+            "best_seller" => false,
         ],
+
         [
             "id" => 4,
             "name" => "Red Beanie",
             "slug" => "red-beanie",
             "price" => 318000,
             "type" => "Accessories & Others",
+            "type_slug" => "accessories-and-others",
             "sizes" => ["One Size"],
             "image" => "/product_image/4.webp",
             "description" => [
@@ -85,13 +98,17 @@ class ProductController extends Controller
                     "Color: Red",
                 ],
             ],
+            "stock" => 25,
+            "best_seller" => false,
         ],
+
         [
             "id" => 5,
             "name" => "Black Long-Sleeve Collar Shirt",
             "slug" => "black-long-sleeve-collar-shirt",
             "price" => 356000,
             "type" => "Shirts",
+            "type_slug" => "shirts",
             "sizes" => ["S", "M", "L", "XL", "XXL"],
             "image" => "/product_image/5.webp",
             "description" => [
@@ -103,13 +120,17 @@ class ProductController extends Controller
                     "Color: Black",
                 ],
             ],
+            "stock" => 25,
+            "best_seller" => true,
         ],
+
         [
             "id" => 6,
             "name" => "T-Shirt - Her Smallest Thought",
             "slug" => "fully-embroidered-sweater",
             "price" => 229000,
             "type" => "Shirts",
+            "type_slug" => "shirts",
             "sizes" => ["S", "M", "L", "XL", "XXL"],
             "image" => "/product_image/6.webp",
             "description" => [
@@ -123,13 +144,17 @@ class ProductController extends Controller
                     "Color: Sand / Beige.",
                 ],
             ],
+            "stock" => 25,
+            "best_seller" => true,
         ],
+
         [
             "id" => 7,
             "name" => "Original Tote Bag",
             "slug" => "original-tote-bag",
             "price" => 311000,
             "type" => "Accessories & Others",
+            "type_slug" => "accessories-and-others",
             "sizes" => ["40 x 35 x 10 cm"],
             "image" => "/product_image/7.webp",
             "description" => [
@@ -141,13 +166,17 @@ class ProductController extends Controller
                     "Color: White",
                 ],
             ],
+            "stock" => 25,
+            "best_seller" => true,
         ],
+
         [
             "id" => 8,
             "name" => "Aira Plushie + glasses",
             "slug" => "aira-plushie-and-glasses",
             "price" => 623000,
             "type" => "Accessories & Others",
+            "type_slug" => "accessories-and-others",
             "sizes" => ["Plushy + Glasses"],
             "image" => "/product_image/8.webp",
             "description" => [
@@ -158,13 +187,17 @@ class ProductController extends Controller
                     "Wooden box and OFF SCRIPT tote bag are not included.",
                 ],
             ],
+            "stock" => 25,
+            "best_seller" => true,
         ],
+
         [
             "id" => 9,
             "name" => "Limited Edition - White Sweater",
             "slug" => "limited-edition-white-sweater",
             "price" => 1099000,
             "type" => "Hoodie / Sweater",
+            "type_slug" => "hoodie-or-sweater",
             "sizes" => ["M", "L", "XL", "XXL"],
             "image" => "/product_image/9.webp",
             "description" => [
@@ -176,13 +209,17 @@ class ProductController extends Controller
                     "Color: White",
                 ],
             ],
+            "stock" => 0,
+            "best_seller" => false,
         ],
+
         [
             "id" => 10,
             "name" => "The Aira Blueprint Hoodie",
             "slug" => "the-aira-blueprint-hoodie",
             "price" => 1015000,
             "type" => "Hoodie / Sweater",
+            "type_slug" => "hoodie-or-sweater",
             "sizes" => ["S", "M", "L", "XL", "XXL"],
             "image" => "/product_image/10.webp",
             "description" => [
@@ -195,15 +232,19 @@ class ProductController extends Controller
                     "Color: Sand beige",
                 ],
             ],
+            "stock" => 33,
+            "best_seller" => true,
         ],
+
         [
             "id" => 11,
             "name" => "Beanie",
             "slug" => "beanie",
             "price" => 318000,
             "type" => "Accessories & Others",
+            "type_slug" => "accessories-and-others",
             "sizes" => ["One Size"],
-            "image" => "/product_image/11.png",
+            "image" => "/product_image/11.webp",
             "description" => [
                 "intro" => "A classic piece of the OFF SCRIPT Collection :D",
                 "details" => [
@@ -213,15 +254,19 @@ class ProductController extends Controller
                     "Color: Black",
                 ],
             ],
+            "stock" => 50,
+            "best_seller" => true,
         ],
+
         [
             "id" => 12,
             "name" => "Limited Edition - Scarf",
             "slug" => "limited-edition-scarf",
             "price" => 350000,
             "type" => "Accessories & Others",
+            "type_slug" => "accessories-and-others",
             "sizes" => ["200 x 70 cm"],
-            "image" => "/product_image/12.png",
+            "image" => "/product_image/12.webp",
             "description" => [
                 "intro" => "A classic piece of the OFF SCRIPT Collection :D",
                 "details" => [
@@ -231,13 +276,17 @@ class ProductController extends Controller
                     "Color: Black",
                 ],
             ],
+            "stock" => 0,
+            "best_seller" => false,
         ],
+
         [
             "id" => 13,
             "name" => "Black Short Sleeve Collar Shirt - Aira No.3",
             "slug" => "black-short-sleeve-collar-shirt-aira-no-3",
             "price" => 305000,
             "type" => "Shirts",
+            "type_slug" => "shirts",
             "sizes" => ["S", "M", "L", "XL", "XXL"],
             "image" => "/product_image/13.webp",
             "description" => [
@@ -249,13 +298,17 @@ class ProductController extends Controller
                     "Color: Black",
                 ],
             ],
+            "stock" => 38,
+            "best_seller" => false,
         ],
+
         [
             "id" => 14,
             "name" => "Black Hoodie",
             "slug" => "black-hoodie",
             "price" => 1015000,
             "type" => "Hoodie / Sweater",
+            "type_slug" => "hoodie-or-sweater",
             "sizes" => ["S", "M", "L", "XL", "XXL"],
             "image" => "/product_image/1.webp",
             "description" => [
@@ -268,13 +321,17 @@ class ProductController extends Controller
                     "Color: Black",
                 ],
             ],
+            "stock" => 15,
+            "best_seller" => true,
         ],
+
         [
             "id" => 15,
             "name" => "OFFSCRIPT Lazy Cat Hoodie",
             "slug" => "offscript-lazy-cat-hoodie",
             "price" => 1015000,
             "type" => "Hoodie / Sweater",
+            "type_slug" => "hoodie-or-sweater",
             "sizes" => ["S", "M", "L", "XL", "XXL"],
             "image" => "/product_image/15.webp",
             "description" => [
@@ -287,13 +344,17 @@ class ProductController extends Controller
                     "Color: Dark Grey",
                 ],
             ],
+            "stock" => 10,
+            "best_seller" => true,
         ],
+
         [
             "id" => 16,
             "name" => "Black T-Shirt",
             "slug" => "black-t-shirt",
             "price" => 305000,
             "type" => "Shirts",
+            "type_slug" => "shirts",
             "sizes" => ["S", "M", "L", "XL", "XXL"],
             "image" => "/product_image/16.webp",
             "description" => [
@@ -303,13 +364,45 @@ class ProductController extends Controller
                     "Color: Black",
                 ],
             ],
+            "stock" => 39,
+            "best_seller" => false,
         ],
     ];
 
     public function index()
     {
         $products = $this->products;
-        return view("index", compact("products"));
+        // $products = collect($this->products);
+        $hoodieSweater = collect($products)->where("type", "Hoodie / Sweater");
+        $shirts = collect($products)->where("type", "Shirts");
+        $accessories = collect($products)->where(
+            "type",
+            "Accessories & Others",
+        );
+
+        return view(
+            "index",
+            compact("products", "hoodieSweater", "shirts", "accessories"),
+        );
+    }
+
+    public function indexProduct($type_slug)
+    {
+        $products = collect($this->products);
+
+        $filtered =
+            $type_slug !== "all"
+                ? $products->where("type_slug", $type_slug)
+                : $products;
+
+        $type =
+            $type_slug !== "all" ? $filtered->first()["type"] ?? null : null;
+
+        return view("product.product", [
+            "products" => $filtered,
+            "type" => $type,
+            "type_slug" => $type_slug,
+        ]);
     }
 
     /**
