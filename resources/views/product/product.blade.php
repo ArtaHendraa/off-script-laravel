@@ -7,8 +7,8 @@
       <img src="/hero/website_hero.webp" alt="hero-img" class="h-[35rem] w-full object-cover" loading="lazy">
       <span class="w-full bg-black h-[35rem] absolute top-0 opacity-50"></span>
       <div class="absolute bottom-20 max-w-7xl w-full inset-x-1/2 -translate-x-1/2">
-        <h1 class="text-white font-[Inter] text-5xl font-semibold mb-5">Yes. We Make Clothing.</h1>
-        <button class="bg-[#e72954] text-white font-semibold py-3 px-6 font-[Inter] cursor-pointer border border-black">
+        <h1 class="text-white font-sans text-5xl font-semibold mb-5">Yes. We Make Clothing.</h1>
+        <button class="bg-[#e72954] text-white font-semibold py-3 px-6 font-sans cursor-pointer border border-black">
           Shop ALL
         </button>
       </div>
@@ -16,7 +16,7 @@
 
     <section class="max-w-7xl mx-auto mb-10">
       <header class="">
-        <div class="flex items-center gap-2 font-[Roboto_Mono] my-10 font-semibold justify-between">
+        <div class="flex items-center gap-2 font-[RobotoMono] my-10 font-semibold justify-between">
           <h2>
             <a href="/">Home</a>
             <span>/</span>
@@ -31,21 +31,21 @@
         </div>
 
         <h1 class="mb-10">
-          <span class="block text-2xl font-[Inter] font-semibold">{{ $type ? $type : 'ALL ITEMS ᕦ(ò_ó)ᕤ' }}</span>
+          <span class="block text-2xl font-sans font-semibold">{{ $type ? $type : 'ALL ITEMS ᕦ(ò_ó)ᕤ' }}</span>
           @if ($type == 'Shirt')
-            <span class="block text-md font-[Roboto_Mono] font-semibold">
+            <span class="block text-md font-[RobotoMono] font-semibold">
               Relaxed and Oversized for Everyday Comfort
             </span>
           @elseif($type == 'Hoodie / Sweater')
-            <span class="block text-md font-[Roboto_Mono] font-semibold">
+            <span class="block text-md font-[RobotoMono] font-semibold">
               Comfy and Embroidered with over 12,000 Threads
             </span>
           @elseif($type == 'Accessories & Others')
-            <span class="block text-md font-[Roboto_Mono] font-semibold">
+            <span class="block text-md font-[RobotoMono] font-semibold">
               Beanies, Plushy, Bags, and Others
             </span>
           @else
-            <span class="block text-md font-[Roboto_Mono] font-semibold">
+            <span class="block text-md font-[RobotoMono] font-semibold">
               Check out everything we&rsquo;ve got in store!
             </span>
           @endif
@@ -69,19 +69,19 @@
                 </button>
               </div>
 
-              <h1 class="capitalize font-semibold text-xl mt-2 text-nowrap overflow-hidden text-ellipsis font-[Inter]">
+              <h1 class="capitalize font-semibold text-xl mt-2 text-nowrap overflow-hidden text-ellipsis font-sans">
                 {{ $product['name'] }}
               </h1>
 
               <div class="flex items-center justify-between mt-1">
-                <h2 class="text-md font-light font-[Roboto_Mono]">Rp.{{ number_format($product['price'], 0, ',', '.') }}
+                <h2 class="text-md font-light font-[RobotoMono]">Rp.{{ number_format($product['price'], 0, ',', '.') }}
                 </h2>
-                <h2 class="capitalize text-sm font-light opacity-50 font-[Roboto_Mono]">{{ $product['type'] }}</h2>
+                <h2 class="capitalize text-sm font-light opacity-50 font-[RobotoMono]">{{ $product['type'] }}</h2>
               </div>
             </a>
           @endforeach
         @else
-          <h1 class="text-center w-full text-3xl font-[Inter] font-semibold">No Data Available</h1>
+          <h1 class="text-center w-full text-3xl font-sans font-semibold">No Data Available</h1>
         @endif
       </div>
     </section>

@@ -3,7 +3,7 @@
 
 @section('content')
   <main class="max-w-7xl mx-auto">
-    <header class="flex items-center gap-2 font-[Roboto_Mono] my-10 font-semibold justify-between">
+    <header class="flex items-center gap-2 font-[RobotoMono] my-10 font-semibold justify-between">
       <h2>
         <a href="/">Home</a>
         <span>/</span>
@@ -26,8 +26,8 @@
           <h1 class="capitalize text-4xl font-semibold">
             {{ $product['name'] }}
           </h1>
-          <h2 class="capitalize text-sm font-light opacity-50 font-[Roboto_Mono]">{{ $product['type'] }}</h2>
-          <h2 class="capitalize text-sm font-light opacity-50 font-[Roboto_Mono]">
+          <h2 class="capitalize text-sm font-light opacity-50 font-[RobotoMono]">{{ $product['type'] }}</h2>
+          <h2 class="capitalize text-sm font-light opacity-50 font-[RobotoMono]">
             Stock:
             @if ($product['stock'] == 0)
               <span class="bg-red-500 px-1">Sold Out</span>
@@ -35,7 +35,7 @@
               <span>{{ $product['stock'] }}</span>
             @endif
           </h2>
-          <h2 class="font-[Roboto_Mono] text-lg">Rp.{{ number_format($product['price'], 0, ',', '.') }}</h2>
+          <h2 class="font-[RobotoMono] text-lg">Rp.{{ number_format($product['price'], 0, ',', '.') }}</h2>
         </div>
 
         <hr class="my-5" />
@@ -43,7 +43,7 @@
         <div class="flex flex-col gap-3 max-w-xs">
           <div class="flex items-center gap-3">
             @foreach ($product['sizes'] as $size)
-              <button class="border py-2 px-4 cursor-pointer font-[Roboto_Mono]">{{ $size }}</button>
+              <button class="border py-2 px-4 cursor-pointer font-[RobotoMono]">{{ $size }}</button>
             @endforeach
           </div>
 
@@ -54,7 +54,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
               </svg>
             </button>
-            <input type="number" value="1" class="border py-2 w-full px-2 focus:outline-none font-[Roboto_Mono]">
+            <input type="number" value="1" class="border py-2 w-full px-2 focus:outline-none font-[RobotoMono]">
             <button class="p-2 border border-l-transparent cursor-pointer">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="size-6">
@@ -67,11 +67,11 @@
         <hr class="my-5" />
 
         <button
-          class="bg-[#e72954] text-white max-w-xs font-semibold py-3 px-6 font-[Inter] cursor-pointer border border-black">
+          class="bg-[#e72954] text-white max-w-xs font-semibold py-3 px-6 font-sans cursor-pointer border border-black">
           ADD TO CART
         </button>
 
-        <div class=" leading-9 font-[Roboto_Mono]">
+        <div class=" leading-9 font-[RobotoMono]">
           <p>{{ $product['description']['intro'] }}</p>
           <ul>
             @foreach ($product['description']['details'] as $detail)

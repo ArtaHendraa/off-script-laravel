@@ -5,11 +5,11 @@
 <section class="max-w-7xl mx-auto">
   <header class="flex justify-between items-start my-10">
     <h1>
-      <span class="block text-2xl font-[Inter] font-semibold">{{ $title }}</span>
-      <span class="block text-md font-[Roboto_Mono] font-semibold">{{ $subtitle }}</span>
+      <span class="block text-2xl font-sans font-semibold">{{ $title }}</span>
+      <span class="block text-md font-[RobotoMono] font-semibold">{{ $subtitle }}</span>
     </h1>
 
-    <a href="{{ $viewAllUrl }}" class="block text-sm font-[Roboto_Mono] font-semibold hover:underline cursor-pointer">
+    <a href="{{ $viewAllUrl }}" class="block text-sm font-[RobotoMono] font-semibold hover:underline cursor-pointer">
       {{ $viewAllText }}
     </a>
   </header>
@@ -31,7 +31,7 @@
 
               @if ($product['stock'] == 0)
                 <h3
-                  class="absolute top-4 right-[-40px] bg-[#e72954] text-white px-10 py-1 border-y border-black text-xs font-[Roboto_Mono] transform rotate-45 shadow-lg">
+                  class="absolute top-4 right-[-40px] bg-[#e72954] text-white px-10 py-1 border-y border-black text-xs font-[RobotoMono] transform rotate-45 shadow-lg">
                   Sold Out
                 </h3>
               @endif
@@ -45,21 +45,21 @@
               </button>
             </div>
 
-            <h1 class="capitalize font-semibold text-xl mt-2 text-nowrap overflow-hidden text-ellipsis font-[Inter]">
+            <h1 class="capitalize font-semibold text-xl mt-2 text-nowrap overflow-hidden text-ellipsis font-sans">
               {{ $product['name'] }}
             </h1>
 
             <div class="flex items-center justify-between mt-1">
-              <h2 class="text-md font-light font-[Roboto_Mono]">
+              <h2 class="text-md font-light font-[RobotoMono]">
                 Rp.{{ number_format($product['price'], 0, ',', '.') }}
               </h2>
-              <h2 class="capitalize text-sm font-light opacity-50 font-[Roboto_Mono]">{{ $product['type'] }}</h2>
+              <h2 class="capitalize text-sm font-light opacity-50 font-[RobotoMono]">{{ $product['type'] }}</h2>
             </div>
           </a>
         @endif
       @endforeach
     @else
-      <h1 class="text-center w-full text-3xl font-[Inter] font-semibold">No Data Available</h1>
+      <h1 class="text-center w-full text-3xl font-sans font-semibold">No Data Available</h1>
     @endif
   </div>
 
@@ -71,7 +71,7 @@
       </svg>
     </button>
 
-    <span class="font-[Roboto_Mono] text-sm">
+    <span class="font-[RobotoMono] text-sm">
       {{ $type === 'all' ? count($products) : collect($products)->where('type', $type)->count() }} ITEMS
     </span>
 

@@ -11,6 +11,10 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+    public function ujiInsert(){
+        
+    }
     public $products = [
         [
             "id" => 1,

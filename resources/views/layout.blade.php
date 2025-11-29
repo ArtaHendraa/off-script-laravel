@@ -6,11 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>@yield('title')</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  {{-- <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
-    rel="stylesheet">
+    rel="stylesheet"> --}}
   @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
@@ -22,8 +22,7 @@
       </a>
 
       <div class="flex items-center gap-5">
-        <button onclick="alert('belum bisa')"
-          class="cursor-pointer text-white font-[Roboto_Mono] flex items-center gap-1">
+        <button onclick="alert('belum bisa')" class="cursor-pointer text-white font-mono flex items-center gap-1">
           <p>Indonesia (IDR Rp)</p>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="#FFF"
             class="size-4">
@@ -68,6 +67,16 @@
   </section>
 
   @yield('content')
+
+  {{-- <footer>
+    <div>
+      <h2 class="font-mono">☆〜（ゝ。∂</h2>
+    </div>
+
+    <div>
+
+    </div>
+  </footer> --}}
 
   <script>
     window.addEventListener('load', () => {
