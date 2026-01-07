@@ -6,11 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>@yield('title')</title>
-  {{-- <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
-    rel="stylesheet"> --}}
   @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
@@ -68,15 +63,32 @@
 
   @yield('content')
 
-  {{-- <footer>
-    <div>
-      <h2 class="font-mono">☆〜（ゝ。∂</h2>
-    </div>
+  <footer class="bg-black overflow-hidden">
+    <section class="w-full relative p-20">
+      <div class="mb-40 flex justify-between max-w-7xl mx-auto">
+        <div class=" max-w-xs">
+          <h1 class="text-3xl text-white font-bold">NOT JUST CLOTHING. IT`S A LIFESTYLE.</h1>
+          <button
+            class="bg-[#e72954] mt-5 text-white font-semibold py-3 px-6 font-sans cursor-pointer border border-black">
+            Shop ALL
+          </button>
 
-    <div>
+          <p class="text-white mt-5 font-light">&copy;2026 OFF SCRIPT. All rights reserved.</p>
+        </div>
 
-    </div>
-  </footer> --}}
+        <div class="flex flex-col gap-y-3 text-white">
+          <h2 class="text-2xl font-semibold">Contact</h2>
+          <a href="" class="text-white/70 font-light">Instagram</a>
+          <a href="" class="text-white/70 font-light">WhatsApp</a>
+          <a href="" class="text-white/70 font-light">TikTok</a>
+        </div>
+      </div>
+
+      <div class="max-w-6xl w-full absolute -bottom-79 left-1/2 -translate-x-1/2">
+        <img src="/logo/x_logo.svg" alt="" class="w-full">
+      </div>
+    </section>
+  </footer>
 
   <script>
     window.addEventListener('load', () => {

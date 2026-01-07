@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layout/store')
 @section('title', 'OFF SCRIPT | Home')
 
 @section('content')
@@ -12,10 +12,11 @@
           Shop ALL
         </button>
       </div>
+
     </section>
 
     <x-carousel id="1" title="ALL ITEMS ᕦ(ò_ó)ᕤ" subtitle="Check out everything we've got in store!"
-      type="all" :products="$products" viewAllText="View All Items" viewAllUrl="/products/category/all" />
+      category="all" :products="$products" viewAllText="View All Items" viewAllUrl="/products/category/all" />
 
     <section class="relative border-y border-black">
       <img src="/hero/best_seller_banner.webp" alt="hero-img" class=" w-full object-cover" loading="lazy">
@@ -30,16 +31,12 @@
       </div>
     </section>
 
-    <x-carousel id="2" title="Shirts" subtitle="Relaxed and Oversized for Everyday Comfort" type="Shirts"
-      :products="$products" viewAllText="View All Shirts" viewAllUrl="/products/category/shirts" />
+    <x-carousel id="2" title="Shirts" subtitle="Relaxed and Oversized for Everyday Comfort" category="Shirts"
+      :products="$shirts" viewAllText="View All Shirts" viewAllUrl="/products/category/shirts" />
 
     <x-carousel id="3" title="Hoodie / Sweater" subtitle="Comfy and Embroidered with over 12,000 Threads"
-      type="Hoodie / Sweater" :products="$products" viewAllText="View All Hoodie / Sweater"
+      category="Hoodie / Sweater" :products="$hoodieSweater" viewAllText="View All Hoodie / Sweater"
       viewAllUrl="/products/category/hoodie-or-sweater" />
-
-    <x-carousel id="4" title="Accessories & Others" subtitle="Beanies, Plushy, Bags, and Others"
-      type="Accessories & Others" :products="$products" viewAllText="View All Accessories & Others"
-      viewAllUrl="/products/category/accessories-and-others" />
 
     <section class="relative border-y border-black">
       <img src="/hero/aira.jpg" alt="hero-img" class=" w-full object-cover" loading="lazy">
@@ -53,6 +50,10 @@
         </a>
       </div>
     </section>
+
+    <x-carousel id="4" title="Accessories & Others" subtitle="Beanies, Plushy, Bags, and Others"
+      category="Accessories & Others" :products="$accessories" viewAllText="View All Accessories & Others"
+      viewAllUrl="/products/category/accessories-and-others" />
 
   </main>
 @endsection

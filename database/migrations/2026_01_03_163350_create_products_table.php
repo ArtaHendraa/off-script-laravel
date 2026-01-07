@@ -12,16 +12,21 @@ return new class extends Migration {
     {
         Schema::create("products", function (Blueprint $table) {
             $table->id();
-            $table->string("name")->nullable();
+
+            $table->string("name");
             $table->string("slug")->unique();
             $table->integer("price");
-            $table->string("type");
-            $table->string("type_slug");
             $table->json("sizes");
             $table->string("image");
             $table->json("description");
             $table->integer("stock");
-            $table->boolean("best_seller")->default(false);
+            $table->boolean("best_seller")->default(0);
+
+            $table
+                ->foreignId("category_id")
+                ->constrained("categories")
+                ->cascadeOnDelete();
+
             $table->timestamps();
         });
     }

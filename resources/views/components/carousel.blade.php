@@ -1,6 +1,4 @@
-@props(['id', 'products'])
-
-@props(['id', 'title', 'subtitle', 'type', 'products', 'viewAllText', 'viewAllUrl'])
+@props(['id', 'title', 'subtitle', 'category', 'products', 'viewAllText', 'viewAllUrl'])
 
 <section class="max-w-7xl mx-auto">
   <header class="flex justify-between items-start my-10">
@@ -18,14 +16,14 @@
     class="flex items-center gap-5 overflow-x-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
     @if (count($products) > 0)
       @foreach ($products as $product)
-        @if ($type === 'all' || $product['type'] === $type)
+        @if ($category === 'all' || $product->category->name === $category)
           <a href="{{ route('product.product-detail.show', $product['slug']) }}" class="block max-w-80 w-full shrink-0">
             <div class="relative border border-black overflow-hidden aspect-[4/5]">
               @if ($product['stock'] > 0)
-                <img src="{{ $product['image'] }}" alt="{{ $product['name'] }}" loading="lazy"
+                <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product['name'] }}" loading="lazy"
                   class="w-full h-full object-cover hover:scale-[102%] duration-200">
               @else
-                <img src="{{ $product['image'] }}" alt="{{ $product['name'] }}" loading="lazy"
+                <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product['name'] }}" loading="lazy"
                   class="w-full h-full object-cover grayscale-100 hover:scale-[102%] duration-200">
               @endif
 
@@ -53,7 +51,8 @@
               <h2 class="text-md font-light font-[RobotoMono]">
                 Rp.{{ number_format($product['price'], 0, ',', '.') }}
               </h2>
-              <h2 class="capitalize text-sm font-light opacity-50 font-[RobotoMono]">{{ $product['type'] }}</h2>
+              <h2 class="capitalize text-sm font-light opacity-50 font-[RobotoMono]">{{ $product->category->name }}
+              </h2>
             </div>
           </a>
         @endif
@@ -72,7 +71,7 @@
     </button>
 
     <span class="font-[RobotoMono] text-sm">
-      {{ $type === 'all' ? count($products) : collect($products)->where('type', $type)->count() }} ITEMS
+      {{ $category === 'all' ? $products->count() : $products->where('category.name', $category)->count() }} ITEMS
     </span>
 
     <button class="border p-2 cursor-pointer" id="nextBtn-{{ $id }}">

@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @source "../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php";
 @source "../../storage/framework/views/*.php";
@@ -39,4 +40,56 @@
     font-weight: 100 900;
     font-style: italic;
     font-display: swap;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none;
+}
+
+html,
+body {
+    scrollbar-width: none;
+}
+
+html,
+body {
+    -ms-overflow-style: none;
+}
+
+.ql-toolbar {
+    border: 1px solid #000 !important;
+    border-bottom: none !important;
+}
+
+.ql-container {
+    border: 1px solid #000 !important;
+}
+
+.ql-editor {
+    min-height: 250px;
+    padding: 1rem;
+}
+
+/* Reset semua ol/ul dari Tailwind Typography yang override default */
+.quill-content ol,
+.quill-content ul {
+    list-style-type: initial; /* biarkan browser pakai default Quill */
+    margin-left: 1.5rem; /* spacing standard */
+    padding-left: 0;
+}
+
+/* Jika Quill memakai <ol data-list="ordered"> atau <ol data-list="bullet"> */
+.quill-content ol[data-list="bullet"],
+.quill-content ul[data-list="bullet"] {
+    list-style-type: disc; /* bullet */
+}
+
+.quill-content ol[data-list="ordered"] {
+    list-style-type: decimal; /* number */
+}
+
+/* Marker spacing */
+.quill-content li {
+    margin-bottom: 0.5rem;
 }
