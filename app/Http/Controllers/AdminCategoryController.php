@@ -33,7 +33,7 @@ class AdminCategoryController extends Controller
             "slug" => $request->slug,
         ]);
         return redirect()
-            ->route("admin.category.add")
+            ->route("admin.category.edit.list")
             ->with("success", "Product created!");
     }
 
@@ -48,7 +48,7 @@ class AdminCategoryController extends Controller
     public function editList()
     {
         $categories = Category::get();
-        return view("pages.admin.edit-category", compact("categories"));
+        return view("pages.admin.category", compact("categories"));
     }
 
     public function edit(string $slug)

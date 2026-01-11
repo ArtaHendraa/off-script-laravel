@@ -3,8 +3,15 @@
 use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminProductController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+
+//! Auth
+Route::get("login", [AuthController::class, "indexLogin"])->name("auth.login");
+Route::get("register", [AuthController::class, "indexRegister"])->name(
+    "auth.register",
+);
 
 // Store Page
 Route::get("/", [ProductController::class, "index"]);
@@ -33,10 +40,10 @@ Route::post("/admin/product/add", [
 ])->name("admin.product.store");
 
 //! Edit Product
-Route::get("/admin/product/edit", [
+Route::get("/admin/product", [
     AdminProductController::class,
-    "editList",
-])->name("admin.product.edit.list");
+    "productsList",
+])->name("admin.product.list");
 Route::get("/admin/product/edit/{slug}", [
     AdminProductController::class,
     "edit",
@@ -63,7 +70,7 @@ Route::post("/admin/category/add", [
 ])->name("admin.category.store");
 
 //! Edit Category
-Route::get("/admin/category/edit", [
+Route::get("/admin/category", [
     AdminCategoryController::class,
     "editList",
 ])->name("admin.category.edit.list");

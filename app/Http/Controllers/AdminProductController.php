@@ -70,10 +70,10 @@ class AdminProductController extends Controller
      * Show the form for editing the specified resource.
      */
 
-    public function editList()
+    public function productsList()
     {
-        $products = Product::with("category")->latest()->get();
-        return view("pages.admin.edit-product", compact("products"));
+        $products = Product::with("category")->latest()->paginate(8);
+        return view("pages.admin.products", compact("products"));
     }
 
     public function edit(string $slug)

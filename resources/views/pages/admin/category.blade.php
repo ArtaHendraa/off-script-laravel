@@ -2,6 +2,18 @@
 @section('title', 'OFF SCRIPT | Edit Category')
 
 @section('content-admin')
+  <div class="bg-white flex justify-between items-center mb-5">
+    <h1 class="text-2xl font-semibold">Categories</h1>
+    <a href="/admin/category/add"
+      class="bg-black text-white py-3 px-5 flex items-center gap-2 hover:scale-105 duration-200">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+        class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+      </svg>
+
+      <span>Add Category</span>
+    </a>
+  </div>
 
   <div class="overflow-x-auto">
     <table class="w-full border border-black border-collapse">
