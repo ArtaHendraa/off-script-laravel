@@ -2,7 +2,7 @@
 @section('title', 'OFF SCRIPT | Login')
 
 @section('auth-content')
-  <section class="flex flex-col items-center justify-center mt-40">
+  <section class="flex flex-col items-center justify-center h-screen">
     <div class="overflow-hidden">
       <svg class="h-auto w-full max-w-60" version="1.0" preserveAspectRatio="xMidYMid meet" height="1080"
         viewBox="0 0 1440 809.999993" zoomAndPan="magnify" width="1920" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -111,30 +111,72 @@
         </g>
       </svg>
     </div>
-    <form method="POST" class="flex flex-col max-w-lg w-full gap-y-5">
-      @csrf
-      @method('POST')
 
-      <label for="name" class="font-semibold">Username</label>
-      <input type="email" id="name" name="text" placeholder="Enter Username"
-        class="border p-4 focus:outline-none" required>
+  <!-- WRAPPER -->
+    <div class="w-full max-w-md">
 
-      <label for="name" class="font-semibold">Email</label>
-      <input type="email" id="name" name="email" placeholder="Enter Email" class="border p-4 focus:outline-none"
-        required>
+        <!-- BRAND (SATU KALI SAJA) -->
+        <div class="mb-8 text-center">
+            <h1 class="text-4xl font-extrabold tracking-tight"></h1>
+        </div>
 
-      <label for="name" class="font-semibold">Password</label>
-      <input type="password" id="name" name="password" placeholder="Enter Email"
-        class="border p-4 focus:outline-none" required>
+        <!-- CARD -->
+        <div class="bg-white rounded-2xl shadow-xl px-10 py-8">
 
-      <label for="category" class="font-semibold">Confirm Password</label>
-      <input type="password" id="password" name="password" placeholder="Enter Password"
-        class="border p-4 focus:outline-none" required>
+            <!-- HEADER -->
+            <h2 class="text-2xl font-bold text-center mb-2">
+                Create Account ✨
+            </h2>
+            <p class="text-center text-gray-500 mb-8 text-sm">
+                Please fill the form to register
+            </p>
 
-      <button class="p-4 w-full border cursor-pointer bg-black text-white font-semibold text-lg"
-        type="submit">Register</button>
-    </form>
+            <!-- FORM (KODE KAMU TETAP, TIDAK DIUBAH) -->
+            <form  action="{{ route('auth.register.store') }}" method="POST" class="flex flex-col gap-y-4">
+                @csrf
+
+                <label for="name" class="font-semibold">Username</label>
+                <input type="text" id="name" name="name"
+                    value="{{ old('name') }}"
+                    placeholder="Enter Username"
+                    class="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black transition"
+                    required>
+
+                <label for="email" class="font-semibold">Email</label>
+                <input type="email" id="email" name="email"
+                    value="{{ old('email') }}"
+                    placeholder="Enter Email"
+                    class="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black transition"
+                    required>
+
+                <label for="password" class="font-semibold">Password</label>
+                <input type="password" id="password" name="password"
+                    placeholder="Enter Password"
+                    class="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black transition"
+                    required>
+
+                <label for="password_confirmation" class="font-semibold">Confirm Password</label>
+                <input type="password" id="password_confirmation"
+                    name="password_confirmation"
+                    placeholder="Confirm Password"
+                    class="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black transition"
+                    required>
+
+                <button type="submit"
+                    class="mt-6 py-3 rounded-lg bg-black text-white font-semibold text-lg hover:bg-gray-900 transition">
+                    Register
+                </button>
+            </form>
+
+            <!-- LOGIN LINK -->
+            <p class="text-center text-sm text-gray-500 mt-6">
+                Already have an account?
+                <a href="{{ url('/login') }}" class="font-semibold text-black hover:underline">
+                    Login
+                </a>
+            </p>
+
+        </div>
+    </div>
   </section>
 @endsection
-
-TODO: Buat register

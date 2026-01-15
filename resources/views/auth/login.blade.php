@@ -8,7 +8,7 @@
         viewBox="0 0 1440 809.999993" zoomAndPan="magnify" width="1920" xmlns:xlink="http://www.w3.org/1999/xlink"
         xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <g></g>
+          <g></g> 
         </defs>
         <g fill-opacity="1" fill="#000">
           <g transform="translate(22.307128, 495.924296)">
@@ -111,20 +111,69 @@
         </g>
       </svg>
     </div>
-    <form method="POST" class="flex flex-col max-w-lg w-full gap-y-5">
-      @csrf
-      @method('POST')
 
-      <label for="name" class="font-semibold">Email</label>
-      <input type="email" id="name" name="email" placeholder="Enter Email" class="border p-4 focus:outline-none"
-        required>
+  <form method="POST"  action="{{ route('auth.login.store') }}"
+    class="flex flex-col gap-y-5 max-w-md w-full bg-white p-8 rounded-2xl shadow-lg">
+    @csrf
 
-      <label for="category" class="font-semibold">Password</label>
-      <input type="password" id="password" name="password" placeholder="Enter Password"
-        class="border p-4 focus:outline-none" required>
+    <h2 class="text-2xl font-bold text-center mb-4">Welcome Back 👋</h2>
+    <p class="text-center text-gray-500 mb-6">Please login to your account</p>
 
-      <button class="p-4 w-full border cursor-pointer bg-black text-white font-semibold text-lg"
-        type="submit">Login</button>
-    </form>
+    <!-- Email -->
+    <div class="flex flex-col gap-1">
+        <label for="email" class="font-medium text-gray-700">Email</label>
+        <div class="relative">
+            <input type="email" id="email" name="email"
+                value="{{ old('email') }}"
+                placeholder="you@example.com"
+                class="border rounded-lg p-4 w-full focus:outline-none focus:ring-2 focus:ring-black focus:border-black"
+                required>
+        </div>
+        @error('email')
+            <span class="text-sm text-red-500">{{ $message }}</span>
+        @enderror
+    </div>
+
+    <!-- Password -->
+    <div class="flex flex-col gap-1">
+        <label for="password" class="font-medium text-gray-700">Password</label>
+        <div class="relative">
+            <input type="password" id="password" name="password"
+                placeholder="••••••••"
+                class="border rounded-lg p-4 w-full focus:outline-none focus:ring-2 focus:ring-black focus:border-black"
+                required>
+        </div>
+        @error('password')
+            <span class="text-sm text-red-500">{{ $message }}</span>
+        @enderror
+    </div>
+
+    <!-- Remember me -->
+    <div class="flex items-center justify-between text-sm">
+        <label class="flex items-center gap-2">
+            <input type="checkbox" name="remember"
+                class="rounded border-gray-300 text-black focus:ring-black">
+            Remember me
+        </label>
+
+        <a href="#" class="text-gray-600 hover:text-black transition">
+            Forgot password?
+        </a>
+    </div>
+          
+
+    <!-- Button -->
+    <button type="submit"
+        class="mt-4 bg-black text-white font-semibold text-lg py-4 rounded-lg hover:bg-gray-900 transition duration-200">
+        Login
+    </button>
+
+      <!-- LOGIN LINK -->
+            <p class="text-center text-sm text-gray-500 mt-6">
+                Don't have an account?
+                <a href="{{ url('/register') }}" class="font-semibold text-black hover:underline">
+                    Register
+</form>
+
   </section>
 @endsection

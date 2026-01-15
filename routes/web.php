@@ -9,9 +9,11 @@ use App\Http\Controllers\ProductController;
 
 //! Auth
 Route::get("login", [AuthController::class, "indexLogin"])->name("auth.login");
+Route::post('login', [AuthController::class, 'login'])->name('auth.login.store');
 Route::get("register", [AuthController::class, "indexRegister"])->name(
     "auth.register",
 );
+Route::post("register", [AuthController::class, "create"])->name("auth.register.store");
 
 // Store Page
 Route::get("/", [ProductController::class, "index"]);
@@ -27,7 +29,7 @@ Route::get("/products/{slug}", [ProductController::class, "show"])->name(
 );
 
 //! Admin Page
-Route::get("/admin", [AdminController::class, "index"]);
+Route::get("/admin", [AdminController::class, "index"])->middleware('auth')->name('admin.index');
 
 //! Store Product
 Route::get("/admin/product/add", [
