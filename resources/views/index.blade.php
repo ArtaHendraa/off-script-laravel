@@ -6,7 +6,7 @@
     <section class="relative border-b border-black">
       <img src="/hero/website_hero.webp" alt="hero-img" class="h-[35rem] w-full object-cover" loading="lazy">
       <span class="w-full bg-black h-[35rem] absolute top-0 opacity-50"></span>
-      <div class="absolute px-4 bottom-20 max-w-7xl w-full inset-x-1/2 -translate-x-1/2">
+      <div class="absolute px-4 xl:px-0 bottom-20 max-w-7xl w-full inset-x-1/2 -translate-x-1/2">
         <h1 class="text-white font-sans text-4xl md:text-5xl font-semibold mb-5">Yes. We Make Clothing.</h1>
         <button
           class="bg-[#e72954] text-white md:text-base text-xs font-semibold py-3 px-6 font-sans cursor-pointer border border-black">
