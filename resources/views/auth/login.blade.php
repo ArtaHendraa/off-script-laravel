@@ -2,13 +2,13 @@
 @section('title', 'OFF SCRIPT | Login')
 
 @section('auth-content')
-  <section class="flex flex-col items-center justify-center mt-40">
+  <section class="flex flex-col items-center justify-center h-screen">
     <div class="overflow-hidden">
       <svg class="h-auto w-full max-w-60" version="1.0" preserveAspectRatio="xMidYMid meet" height="1080"
         viewBox="0 0 1440 809.999993" zoomAndPan="magnify" width="1920" xmlns:xlink="http://www.w3.org/1999/xlink"
         xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <g></g> 
+          <g></g>
         </defs>
         <g fill-opacity="1" fill="#000">
           <g transform="translate(22.307128, 495.924296)">
@@ -112,68 +112,63 @@
       </svg>
     </div>
 
-  <form method="POST"  action="{{ route('auth.login.store') }}"
-    class="flex flex-col gap-y-5 max-w-md w-full bg-white p-8 rounded-2xl shadow-lg">
-    @csrf
+    <form method="POST" action="{{ route('auth.login.store') }}"
+      class="flex flex-col gap-y-5 max-w-md w-full bg-white p-8 rounded-2xl shadow-lg">
+      @csrf
 
-    <h2 class="text-2xl font-bold text-center mb-4">Welcome Back 👋</h2>
-    <p class="text-center text-gray-500 mb-6">Please login to your account</p>
+      <h2 class="text-2xl font-bold text-center mb-4">Welcome Back 👋</h2>
+      <p class="text-center text-gray-500 mb-6">Please login to your account</p>
 
-    <!-- Email -->
-    <div class="flex flex-col gap-1">
+      <!-- Email -->
+      <div class="flex flex-col gap-1">
         <label for="email" class="font-medium text-gray-700">Email</label>
         <div class="relative">
-            <input type="email" id="email" name="email"
-                value="{{ old('email') }}"
-                placeholder="you@example.com"
-                class="border rounded-lg p-4 w-full focus:outline-none focus:ring-2 focus:ring-black focus:border-black"
-                required>
+          <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="you@example.com"
+            class="border rounded-lg p-4 w-full focus:outline-none focus:ring-2 focus:ring-black focus:border-black"
+            required>
         </div>
         @error('email')
-            <span class="text-sm text-red-500">{{ $message }}</span>
+          <span class="text-sm text-red-500">{{ $message }}</span>
         @enderror
-    </div>
+      </div>
 
-    <!-- Password -->
-    <div class="flex flex-col gap-1">
+      <!-- Password -->
+      <div class="flex flex-col gap-1">
         <label for="password" class="font-medium text-gray-700">Password</label>
         <div class="relative">
-            <input type="password" id="password" name="password"
-                placeholder="••••••••"
-                class="border rounded-lg p-4 w-full focus:outline-none focus:ring-2 focus:ring-black focus:border-black"
-                required>
+          <input type="password" id="password" name="password" placeholder="••••••••"
+            class="border rounded-lg p-4 w-full focus:outline-none focus:ring-2 focus:ring-black focus:border-black"
+            required>
         </div>
         @error('password')
-            <span class="text-sm text-red-500">{{ $message }}</span>
+          <span class="text-sm text-red-500">{{ $message }}</span>
         @enderror
-    </div>
+      </div>
 
-    <!-- Remember me -->
-    <div class="flex items-center justify-between text-sm">
+      <!-- Remember me -->
+      <div class="flex items-center justify-between text-sm">
         <label class="flex items-center gap-2">
-            <input type="checkbox" name="remember"
-                class="rounded border-gray-300 text-black focus:ring-black">
-            Remember me
+          <input type="checkbox" name="remember" class="rounded border-gray-300 text-black focus:ring-black">
+          Remember me
         </label>
 
         <a href="#" class="text-gray-600 hover:text-black transition">
-            Forgot password?
+          Forgot password?
         </a>
-    </div>
-          
+      </div>
 
-    <!-- Button -->
-    <button type="submit"
+      <!-- Button -->
+      <button type="submit"
         class="mt-4 bg-black text-white font-semibold text-lg py-4 rounded-lg hover:bg-gray-900 transition duration-200">
         Login
-    </button>
+      </button>
 
       <!-- LOGIN LINK -->
-            <p class="text-center text-sm text-gray-500 mt-6">
-                Don't have an account?
-                <a href="{{ url('/register') }}" class="font-semibold text-black hover:underline">
-                    Register
-</form>
+      <p class="text-center text-sm text-gray-500 mt-6">
+        Don't have an account?
+        <a href="{{ url('/register') }}" class="font-semibold text-black hover:underline">
+          Register
+    </form>
 
   </section>
 @endsection

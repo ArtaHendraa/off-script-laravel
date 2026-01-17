@@ -3,7 +3,7 @@
 
 @section('content')
   <main class="max-w-7xl mx-auto">
-    <header class="flex items-center gap-2 font-[RobotoMono] my-10 font-semibold justify-between">
+    <header class="hidden xl:flex items-center gap-2 font-[RobotoMono] my-10 font-semibold justify-between">
       <h2>
         <a href="/">Home</a>
         <span>/</span>
@@ -15,13 +15,13 @@
       <h2>ᕦ(ò_ó)ᕤ</h2>
     </header>
 
-    <section class="flex gap-10">
-      <div class="max-w-1/2 w-full sticky top-5 self-start">
-        <img class="bg-cover aspect-square overflow-hidden contrast-90 border shrink-0"
+    <section class="flex flex-col xl:flex-row gap-10">
+      <div class="xl:max-w-1/2 w-full xl:sticky top-5 self-start">
+        <img class="bg-cover aspect-square overflow-hidden contrast-90 xl:border shrink-0"
           src={{ asset('storage/' . $product->image) }} alt="{{ $product['name'] }}">
       </div>
 
-      <div class="max-w-1/2 w-full flex flex-col gap-5">
+      <div class="xl:max-w-1/2 w-full flex flex-col gap-5 px-4 xl:px-0">
         <div class="flex flex-col gap-y-1">
           <h1 class="capitalize text-4xl font-semibold">
             {{ $product['name'] }}
@@ -67,10 +67,13 @@
 
         <hr class="my-5" />
 
-        <button
-          class="bg-[#e72954] text-white max-w-xs font-semibold py-3 px-6 font-sans cursor-pointer border border-black">
-          ADD TO CART
-        </button>
+        <form action="{{ route('cart.add', $product->id) }}" method="POST">
+          @csrf
+          <button
+            class="bg-[#e72954] text-white max-w-xs font-semibold py-3 px-6 font-sans cursor-pointer border border-black">
+            ADD TO CART
+          </button>
+        </form>
 
         <div class="prose quill-content leading-9 font-[RobotoMono]">
           <p> {!! $product->description !!}</p>

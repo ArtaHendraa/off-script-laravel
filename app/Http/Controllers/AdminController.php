@@ -14,7 +14,10 @@ class AdminController extends Controller
     public function index()
     {
         $products = Product::with("category")->latest()->get();
-        return view("pages.admin.dashboard", compact("products"));
+        $chartData = $products
+            ->groupBy(fn($item) => $item->category->name ?? "Tanpa Kategori")
+            ->map(fn($group) => $group->count());
+        return view("pages.admin.dashboard", compact("products", "chartData"));
     }
 
     /**

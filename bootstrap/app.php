@@ -14,6 +14,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             // "users.exist" => \App\Http\Middleware\RedirectIfUsersExist::class,
             "role" => \App\Http\Middleware\CheckRole::class,
+            "loggedin" => \App\Http\Middleware\RedirectIfLoggedIn::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

@@ -17,7 +17,27 @@
       @if (isset($product))
         <img src="{{ asset('storage/' . $product->image) }}" class="w-full max-w-50 border">
       @else
-        <input required type="file" name="image" accept=".webp" class="border w-full p-4 text-black/50">
+        <div class="border p-4">
+          <div id="drop-wrapper" class="relative border border-dashed border-black p-20 text-center cursor-pointer">
+
+            <input required type="file" name="image" accept=".webp" id="fileInput"
+              class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
+
+            <div id="dropContent" class="flex flex-col items-center gap-2 pointer-events-none">
+
+              <!-- Icon -->
+              <svg class="w-10 h-10 text-black/40" fill="none" stroke="currentColor" stroke-width="1.5"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M12 16v-8m0 0l-3 3m3-3l3 3M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2" />
+              </svg>
+
+              <p class="text-black/60 text-sm">Drag & drop image di sini</p>
+              <span class="text-xs text-black/40">Format: .webp</span>
+
+            </div>
+          </div>
+        </div>
       @endif
     </div>
 
@@ -178,6 +198,35 @@
 
     slugInput.addEventListener('input', () => {
       slugInput.dataset.manual = "true";
+    });
+
+
+    const input = document.getElementById('fileInput');
+    const wrapper = document.getElementById('drop-wrapper');
+    const text = wrapper.querySelector('p');
+
+    wrapper.addEventListener('dragover', e => {
+      e.preventDefault();
+      wrapper.classList.add('border-black');
+      text.textContent = "Lepaskan untuk upload";
+    });
+
+    wrapper.addEventListener('dragleave', () => {
+      wrapper.classList.remove('border-black');
+      text.textContent = "Drag & drop image di sini";
+    });
+
+    wrapper.addEventListener('drop', e => {
+      e.preventDefault();
+      const file = e.dataTransfer.files[0];
+      if (!file) return;
+
+      const dt = new DataTransfer();
+      dt.items.add(file);
+      input.files = dt.files;
+
+      text.textContent = file.name;
+      wrapper.classList.remove('border-black');
     });
   </script>
 @endsection

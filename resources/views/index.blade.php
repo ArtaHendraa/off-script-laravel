@@ -6,13 +6,13 @@
     <section class="relative border-b border-black">
       <img src="/hero/website_hero.webp" alt="hero-img" class="h-[35rem] w-full object-cover" loading="lazy">
       <span class="w-full bg-black h-[35rem] absolute top-0 opacity-50"></span>
-      <div class="absolute bottom-20 max-w-7xl w-full inset-x-1/2 -translate-x-1/2">
-        <h1 class="text-white font-sans text-5xl font-semibold mb-5">Yes. We Make Clothing.</h1>
-        <button class="bg-[#e72954] text-white font-semibold py-3 px-6 font-sans cursor-pointer border border-black">
+      <div class="absolute px-4 bottom-20 max-w-7xl w-full inset-x-1/2 -translate-x-1/2">
+        <h1 class="text-white font-sans text-4xl md:text-5xl font-semibold mb-5">Yes. We Make Clothing.</h1>
+        <button
+          class="bg-[#e72954] text-white md:text-base text-xs font-semibold py-3 px-6 font-sans cursor-pointer border border-black">
           Shop ALL
         </button>
       </div>
-
     </section>
 
     <x-carousel id="1" title="ALL ITEMS ᕦ(ò_ó)ᕤ" subtitle="Check out everything we've got in store!"
@@ -21,11 +21,11 @@
     <section class="relative border-y border-black">
       <img src="/hero/best_seller_banner.webp" alt="hero-img" class=" w-full object-cover" loading="lazy">
       <span class="w-full bg-black h-full absolute top-0 opacity-50"></span>
-      <div class="absolute bottom-20 max-w-7xl w-full inset-x-1/2 -translate-x-1/2">
-        <h1 class="text-white font-sans text-5xl font-semibold mb-2">Our Best Sellers</h1>
-        <h2 class="text-white font-mono text-xl font-semibold mb-5">Black Hoodie</h2>
+      <div class="absolute bottom-7 md:bottom-20 max-w-7xl w-full inset-x-1/2 -translate-x-1/2 px-4 xl:px-0">
+        <h1 class="text-white font-sans text-xl md:text-5xl font-semibold md:mb-2">Our Best Sellers</h1>
+        <h2 class="text-white font-mono text-sm md:text-xl font-semibold mb-2 md:mb-5">Black Hoodie</h2>
         <a href="{{ route('product.product-detail.show', 'black-hoodie') }}"
-          class="bg-white font-semibold py-3 px-6 font-mono cursor-pointer border border-black">
+          class="bg-white text-xs md:text-base font-semibold py-2 md:py-3 px-6 font-mono cursor-pointer border border-black">
           Shop Now
         </a>
       </div>
@@ -41,11 +41,12 @@
     <section class="relative border-y border-black">
       <img src="/hero/aira.jpg" alt="hero-img" class=" w-full object-cover" loading="lazy">
       <span class="w-full bg-black h-full absolute top-0 opacity-50"></span>
-      <div class="absolute bottom-20 max-w-7xl w-full inset-x-1/2 -translate-x-1/2">
-        <h1 class="text-white font-sans text-5xl font-semibold mb-2">Buy Our Plushie!!</h1>
-        <h2 class="text-white font-mono text-xl font-semibold mb-5">Aira Plushie + glasses</h2>
-        <a href="{{ route('product.product-detail.show', 'aira-plushie-and-glasses') }}"
-          class="bg-white font-semibold py-3 px-6 font-mono cursor-pointer border border-black">
+
+      <div class="absolute bottom-7 md:bottom-20 max-w-7xl w-full inset-x-1/2 -translate-x-1/2 px-4 xl:px-0">
+        <h1 class="text-white font-sans text-xl md:text-5xl font-semibold md:mb-2">Buy Our Plushie!!</h1>
+        <h2 class="text-white font-mono text-sm md:text-xl font-semibold mb-2 md:mb-5">Aira Plushie + glasses</h2>
+        <a href="{{ route('product.product-detail.show', 'aira-plushie') }}"
+          class="bg-white text-xs md:text-base font-semibold py-2 md:py-3 px-6 font-mono cursor-pointer border border-black">
           Shop Now
         </a>
       </div>

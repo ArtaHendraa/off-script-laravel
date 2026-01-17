@@ -9,9 +9,6 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function indexLogin()
     {
         return view("auth.login");
@@ -22,93 +19,57 @@ class AuthController extends Controller
         return view("auth.register");
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-
     public function login(Request $request)
-{
-    // 1. VALIDASI
-    $credentials = $request->validate([
-        'email' => 'required|email',
-        'password' => 'required',
-    ]);
+    {
+        $credentials = $request->validate([
+            "email" => "required|email",
+            "password" => "required",
+        ]);
 
-    // 2. LOGIN ATTEMPT
-    if (Auth::attempt($credentials, $request->filled('remember'))) {
-        $request->session()->regenerate();
+        if (Auth::attempt($credentials, $request->filled("remember"))) {
+            $request->session()->regenerate();
+            $user = Auth::user();
+            if ($user->role === "user") {
+                return redirect("/");
+            } elseif (in_array($user->role, ["admin", "god"])) {
+                return redirect("/admin");
+            }
+            return redirect("/");
+        }
 
-        // 3. REDIRECT JIKA BERHASIL
-         return redirect()->route('admin.index');
+        return back()
+            ->withErrors([
+                "email" => "Email atau password salah",
+            ])
+            ->withInput();
     }
 
-    // 4. JIKA GAGAL
-    return back()->withErrors([
-        'email' => 'Email atau password salah',
-    ])->withInput();
-}
-
-    
-    public function create(Request $request)
+    public function register(Request $request)
     {
-       
-      // 1. VALIDASI DATA
         $request->validate([
-            'name' => 'required|string|min:3|max:255',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:3|confirmed',
+            "name" => "required|string|min:3|max:255",
+            "email" => "required|email|unique:users,email",
+            "password" => "required|confirmed",
         ]);
 
-        // 2. SIMPAN USER KE DATABASE
         User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
+            "name" => $request->name,
+            "email" => $request->email,
+            "password" => Hash::make($request->password),
         ]);
 
-        // 3. REDIRECT KE LOGIN
-        return redirect()->route('auth.login')
-            ->with('success', 'Register berhasil, silakan login!');
+        return redirect()
+            ->route("login")
+            ->with("success", "Register berhasil, silakan login!");
     }
 
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function logout(Request $request)
     {
-        //
-    }
+        Auth::logout();
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        return redirect()->route("login")->with("success", "Berhasil logout.");
     }
 }

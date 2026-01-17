@@ -18,7 +18,7 @@
   <div class="overflow-x-auto">
     <table class="w-full border border-black border-collapse">
       <thead>
-        <tr class="">
+        <tr class="bg-black text-white">
           <th class="border border-black px-4 py-2 text-center">No</th>
           <th class="border border-black px-4 py-2 text-center">Name</th>
           <th class="border border-black px-4 py-2 text-center">Slug</th>

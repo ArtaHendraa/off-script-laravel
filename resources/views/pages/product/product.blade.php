@@ -4,8 +4,8 @@
 @section('content')
   <main>
     <section class="max-w-7xl mx-auto mb-10">
-      <header class="">
-        <div class="flex items-center gap-2 font-[RobotoMono] my-10 font-semibold justify-between">
+      <header>
+        <div class="hidden md:flex items-center gap-2 font-[RobotoMono] my-10 font-semibold justify-between">
           <h2>
             <a href="/">Home</a>
             <span>/</span>
@@ -41,7 +41,7 @@
         </h1>
       </header>
 
-      <div class="grid grid-cols-4 gap-5" id="carousel">
+      <div class="grid grid-cols-2 md:grid-cols-3 mx-4 xl:mx-0 xl:grid-cols-4 gap-5" id="carousel">
         @if ($products->count())
           @foreach ($products as $product)
             <a href="{{ route('product.product-detail.show', $product['slug']) }}" class="block max-w-80 w-full shrink-0">
