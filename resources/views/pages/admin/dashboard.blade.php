@@ -22,7 +22,7 @@
       <div class="bg-black text-white w-full flex justify-between items-start p-5 rounded-xl">
         <div>
           <h3 class="text-sm mb-5 text-white/80">Total Customers</h3>
-          <h1 class="text-7xl font-bold">6767</h1>
+          <h1 class="text-7xl font-bold">{{ $totalCustomer }}</h1>
         </div>
 
         <div class="bg-blue-500 text-black rounded-lg p-2">
@@ -38,7 +38,7 @@
       <div class="bg-black text-white w-full flex justify-between items-start p-5 rounded-xl">
         <div>
           <h3 class="text-sm mb-5 text-white/80">Total Orders</h3>
-          <h1 class="text-7xl font-bold">67</h1>
+          <h1 class="text-7xl font-bold">{{ $totalOrders }}</h1>
         </div>
 
         <div class="bg-[#e72954] text-black rounded-lg p-2">
@@ -52,7 +52,7 @@
     </div>
 
     <div class="mt-5 flex gap-5">
-      <div class="bg-black text-white/80 w-full p-10 rounded-xl">
+      <div class="bg-black text-white w-full p-10 rounded-xl">
         <div class="mb-6">
           <h2 class="text-xl font-semibold">
             Product by Category
@@ -74,10 +74,10 @@
               Total Revenue
             </p>
             <h2 class="text-4xl font-bold mt-2">
-              Rp.67.067.000
+              Rp.{{ number_format($totalRevenue, 0, ',', '.') }}
             </h2>
             <p class="text-sm text-green-400 mt-1">
-              +12.5% from last month
+              {{ $growth >= 0 ? '+' : '' }}{{ $growth }}% from last month
             </p>
           </div>
 
@@ -184,8 +184,8 @@
   </main>
 
   <script>
-    const chartLabels = @json($chartData->keys());
-    const chartValues = @json($chartData->values());
+    const chartLabels = @json($productChartData->keys());
+    const chartValues = @json($productChartData->values());
     document.addEventListener('DOMContentLoaded', function() {
 
       const ctx = document.getElementById('chart');
@@ -248,7 +248,7 @@
         data: {
           labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
           datasets: [{
-            data: [12000, 15000, 11000, 18000, 22000, 30000],
+            data: [12000, 12500, 13000, 13000, 14000, 15000],
             borderColor: '#e72954',
             backgroundColor: 'rgba(231, 41, 84, 0.25)',
             fill: true,

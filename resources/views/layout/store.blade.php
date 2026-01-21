@@ -11,6 +11,14 @@
 </head>
 
 <body>
+
+  <section class="fixed top-0 z-50" id="loader-wrapper">
+    <div class="w-screen h-screen bg-[#fdfdfd] flex justify-center items-center transition-opacity duration-500"
+      id="content">
+      <img src="/preload/preloaderapp.gif" alt="logo" class="w-full max-w-3xs">
+    </div>
+  </section>
+
   <nav class="py-5 border-b bg-black xl:px-0 px-4">
     <div class="max-w-7xl mx-auto class flex justify-between items-center">
       <button class="xl:hidden">
@@ -67,13 +75,6 @@
       </a>
     </div>
   </nav>
-
-  <section class="fixed top-0 z-50" id="loader-wrapper">
-    <div class="w-screen h-screen bg-[#fdfdfd] flex justify-center items-center transition-opacity duration-500"
-      id="content">
-      <img src="/preload/preloaderapp.gif" alt="logo" class="w-full max-w-3xs">
-    </div>
-  </section>
 
   @yield('content')
 

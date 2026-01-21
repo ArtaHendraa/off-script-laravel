@@ -42,7 +42,7 @@
     <button type="submit"
       class="p-4 w-full border cursor-pointer text-black bg-white hover:bg-neutral-100 transition-colors font-semibold text-lg flex items-center gap-2 justify-center">
       <img src="{{ asset(path: 'logo/google.svg') }}" alt="google-logo" class="size-6">
-      <span>Google</span>
+      <span>Sign Up with Google</span>
     </button>
 
     <div class="mx-auto">

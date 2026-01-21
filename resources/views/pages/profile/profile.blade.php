@@ -20,14 +20,23 @@
       </form>
     </div>
 
-    <div></div>
+    <div class="flex gap-5 mb-10">
+      <div class="max-w-28 border">
+        <img src="/auth/no_profile.webp" alt="no-profile" class="w-full aspect-square">
+      </div>
+
+      <div>
+        <h1 class="text-3xl font-semibold">{{ $user->name }}</h1>
+        <h1>{{ $user->email }}</h1>
+      </div>
+    </div>
 
     <div class="mb-5">
       <h2 class="text-xl font-bold mb-4">Order History</h2>
       @if ($orders->count())
         <ul class="space-y-3">
           @foreach ($orders as $order)
-            <li class="p-4 border rounded">
+            <li class="p-4 border">
               <p><strong>Total:</strong> Rp {{ number_format($order->total_price) }}</p>
               <p><strong>Status:</strong> {{ $order->status }}</p>
               <p><strong>Payment Mathod:</strong> {{ $order->payment_method }}</p>
@@ -37,7 +46,13 @@
           @endforeach
         </ul>
       @else
-        <p class="text-gray-500">Belum ada order.</p>
+        <div class="w-full h-96 flex flex-col justify-center items-center">
+          <div class="max-w-52 opacity-50">
+            <img src="/icons/cart_empty.png" alt="no-cart">
+          </div>
+
+          <p class="mt-5 text-center">No Order</p>
+        </div>
       @endif
     </div>
   </main>

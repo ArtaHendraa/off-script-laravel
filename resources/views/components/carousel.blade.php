@@ -4,7 +4,8 @@
   <header class="flex justify-between items-center md:items-start mx-4 xl:mx-0 mt-10 mb-5 md:my-10">
     <h1>
       <span class="block text-xl md:text-2xl font-sans font-semibold">{{ $title }}</span>
-      <span class="block text-xs md:text-md font-[RobotoMono] font-semibold">{{ $subtitle }}</span>
+      <span
+        class="block text-xs md:text-md xl:text-base text-black/70 font-[RobotoMono] font-semibold">{{ $subtitle }}</span>
     </h1>
 
     <a href="{{ $viewAllUrl }}"

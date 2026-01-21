@@ -127,7 +127,7 @@
 
     <section class="flex-1 border-l h-screen overflow-hidden">
       <img src="{{ asset('auth/side_ilustration.png') }}" alt="Auth Illustration"
-        class="w-full object-cover contrast-90">
+        class="w-full h-full object-cover contrast-90">
     </section>
   </main>
 

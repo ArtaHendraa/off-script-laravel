@@ -13,7 +13,7 @@
 
 @font-face {
     font-family: "RobotoMono";
-    src: url("/public/fonts/roboto-mono/RobotoMono-VariableFont_wght.ttf")
+    src: url("../fonts/roboto-mono/RobotoMono-VariableFont_wght.ttf")
         format("truetype");
     font-weight: 100 900;
     font-style: normal;
@@ -21,7 +21,7 @@
 }
 @font-face {
     font-family: "RobotoMono";
-    src: url("/public/fonts/roboto-mono/RobotoMono-Italic-VariableFont_wght.ttf")
+    src: url("../fonts/roboto-mono/RobotoMono-Italic-VariableFont_wght.ttf")
         format("truetype");
     font-weight: 100 900;
     font-style: italic;
@@ -29,14 +29,14 @@
 }
 @font-face {
     font-family: "Inter";
-    src: url("/public/fonts/inter/InterVariable.woff2") format("woff2");
+    src: url("../fonts/inter/InterVariable.woff2") format("woff2");
     font-weight: 100 900;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: "Inter";
-    src: url("/public/fonts/inter/InterVariable-Italic.woff2") format("woff2");
+    src: url("../fonts/inter/InterVariable-Italic.woff2") format("woff2");
     font-weight: 100 900;
     font-style: italic;
     font-display: swap;

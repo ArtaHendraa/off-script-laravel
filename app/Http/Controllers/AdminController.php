@@ -3,50 +3,49 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Order;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
+        $totalRevenue = Order::where("status", "paid")->sum("total_price");
+        $thisMonth = Order::where("status", "paid")
+            ->whereMonth("created_at", now()->month)
+            ->whereYear("created_at", now()->year)
+            ->sum("total_price");
+        $lastMonth = Order::where("status", "paid")
+            ->whereMonth("created_at", now()->subMonth()->month)
+            ->whereYear("created_at", now()->subMonth()->year)
+            ->sum("total_price");
+        $growth =
+            $lastMonth > 0
+                ? round((($thisMonth - $lastMonth) / $lastMonth) * 100, 1)
+                : 0;
+
+        $totalCustomer = User::where("role", "user")->count();
+        $totalOrders = Order::where("status", "paid")->count();
+
         $products = Product::with("category")->latest()->get();
-        $chartData = $products
+        $productChartData = $products
             ->groupBy(fn($item) => $item->category->name ?? "Tanpa Kategori")
             ->map(fn($group) => $group->count());
-        return view("pages.admin.dashboard", compact("products", "chartData"));
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return view(
+            "pages.admin.dashboard",
+            compact(
+                "products",
+                "productChartData",
+                "totalRevenue",
+                "growth",
+                "totalCustomer",
+                "totalOrders",
+            ),
+        );
     }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $slug)
     {
         $product = Product::where("slug", $slug)->firstOrFail();
@@ -56,10 +55,6 @@ class AdminController extends Controller
             compact("product", "categories"),
         );
     }
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $slug)
     {
         $product = Product::where("slug", $slug)->firstOrFail();
@@ -77,12 +72,5 @@ class AdminController extends Controller
         $product->update($data);
 
         return back()->with("success", "Product updated!");
-    }
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }

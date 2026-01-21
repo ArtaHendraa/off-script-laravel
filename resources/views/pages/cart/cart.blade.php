@@ -74,7 +74,13 @@
       </div>
 
     @empty
-      <p class="text-gray-500">Keranjang kosong</p>
+      <div class="w-full h-96 flex flex-col justify-center items-center">
+        <div class="max-w-52 opacity-50">
+          <img src="/icons/cart_empty.png" alt="no-cart">
+        </div>
+
+        <p class="mt-5 text-center">Chart Empyty</p>
+      </div>
     @endforelse
 
     @if (session('cart'))
