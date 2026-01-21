@@ -1,0 +1,36 @@
+{
+  "resources/css/app.css": {
+    "file": "assets/app-CFgp0oNt.css",
+    "src": "resources/css/app.css",
+    "isEntry": true,
+    "name": "app",
+    "names": [
+      "app.css"
+    ]
+  },
+  "resources/fonts/inter/InterVariable-Italic.woff2": {
+    "file": "assets/InterVariable-Italic-FCBEiFp6.woff2",
+    "src": "resources/fonts/inter/InterVariable-Italic.woff2"
+  },
+  "resources/fonts/inter/InterVariable.woff2": {
+    "file": "assets/InterVariable-DiVDrmQJ.woff2",
+    "src": "resources/fonts/inter/InterVariable.woff2"
+  },
+  "resources/fonts/roboto-mono/RobotoMono-Italic-VariableFont_wght.ttf": {
+    "file": "assets/RobotoMono-Italic-VariableFont_wght-BTkegZV4.ttf",
+    "src": "resources/fonts/roboto-mono/RobotoMono-Italic-VariableFont_wght.ttf"
+  },
+  "resources/fonts/roboto-mono/RobotoMono-VariableFont_wght.ttf": {
+    "file": "assets/RobotoMono-VariableFont_wght-BmjObt7I.ttf",
+    "src": "resources/fonts/roboto-mono/RobotoMono-VariableFont_wght.ttf"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-BZlUd5mc.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true,
+    "css": [
+      "assets/app-Bf4bJ6eu.css"
+    ]
+  }
+}
