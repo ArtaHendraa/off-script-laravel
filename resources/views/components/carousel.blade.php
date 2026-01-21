@@ -39,8 +39,8 @@
 
               <form action="{{ route('cart.add', $product->id) }}" method="POST">
                 @csrf
-                <button
-                  class="absolute bottom-2 right-2 cursor-pointer bg-white shadow-lg p-1 border hover:scale-105 duration-150">
+                <button type="submit" @if ($product->stock <= 0) disabled @endif
+                  class="absolute bottom-2 right-2 cursor-pointer bg-white shadow-lg p-1 border hover:scale-105 duration-150 disabled:cursor-not-allowed disabled:hover:scale-100">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                     stroke="#000" class="size-5">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />

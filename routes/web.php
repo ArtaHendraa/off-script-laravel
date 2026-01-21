@@ -10,6 +10,7 @@ use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use FontLib\Table\Type\name;
 
 //! Auth
 Route::get("/login", [AuthController::class, "indexLogin"])
@@ -70,6 +71,9 @@ Route::post("/checkout", [CheckoutController::class, "store"])
 Route::get("/admin", [AdminController::class, "index"])
     ->middleware("auth", "role:admin,god")
     ->name("admin.index");
+Route::get("/export-revenue", [AdminController::class, "exportExcel"])
+    ->name("export.revenue")
+    ->middleware("auth", "role:admin,god");
 
 //! Store Product
 Route::get("/admin/product/add", [AdminProductController::class, "index"])

@@ -7,6 +7,8 @@ use App\Models\Order;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class AdminController extends Controller
 {
@@ -46,31 +48,54 @@ class AdminController extends Controller
             ),
         );
     }
-    public function edit(string $slug)
+
+    public function exportExcel()
     {
-        $product = Product::where("slug", $slug)->firstOrFail();
-        $categories = Category::all();
-        return view(
-            "pages.admin.product-form",
-            compact("product", "categories"),
+        // ambil hanya order yang PAID (revenue valid)
+        $orders = Order::where("status", "paid")->get();
+
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+
+        // Header
+        $sheet->setCellValue("A1", "ID Order");
+        $sheet->setCellValue("B1", "User ID");
+        $sheet->setCellValue("C1", "Total Revenue");
+        $sheet->setCellValue("D1", "Payment Method");
+        $sheet->setCellValue("E1", "Status");
+        $sheet->setCellValue("F1", "Alamat");
+        $sheet->setCellValue("G1", "Tanggal Order");
+
+        $row = 2;
+        foreach ($orders as $order) {
+            $sheet->setCellValue("A" . $row, $order->id);
+            $sheet->setCellValue("B" . $row, $order->user_id);
+            $sheet->setCellValue("C" . $row, $order->total_price);
+            $sheet->setCellValue("D" . $row, $order->payment_method);
+            $sheet->setCellValue("E" . $row, $order->status);
+            $sheet->setCellValue("F" . $row, $order->address);
+            $sheet->setCellValue(
+                "G" . $row,
+                $order->created_at->format("Y-m-d H:i"),
+            );
+            $row++;
+        }
+
+        // Format kolom revenue jadi Rupiah
+        $sheet
+            ->getStyle("C2:C" . ($row - 1))
+            ->getNumberFormat()
+            ->setFormatCode('"Rp"#,##0');
+
+        $writer = new Xlsx($spreadsheet);
+        $fileName = "revenue-orders.xlsx";
+
+        header(
+            "Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
         );
-    }
-    public function update(Request $request, string $slug)
-    {
-        $product = Product::where("slug", $slug)->firstOrFail();
-        $data = $request->validate([
-            "name" => "required|string|max:255",
-            "slug" => "required|string|max:255",
-            "price" => "required|numeric|min:0",
-            "stock" => "required|integer|min:0",
-            "category_id" => "required|exists:categories,id",
-            "description" => "required|string",
-        ]);
+        header('Content-Disposition: attachment; filename="' . $fileName . '"');
 
-        $data["sizes"] = json_encode($request->sizes ?? []);
-
-        $product->update($data);
-
-        return back()->with("success", "Product updated!");
+        $writer->save("php://output");
+        exit();
     }
 }

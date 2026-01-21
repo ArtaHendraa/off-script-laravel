@@ -81,23 +81,25 @@
             </p>
           </div>
 
-          <div class="bg-[#e72954] text-black p-2 rounded-lg">
+          {{-- <div class="bg-[#e72954] text-black p-2 rounded-lg">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="size-6">
               <path stroke-linecap="round" stroke-linejoin="round"
                 d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z" />
             </svg>
-          </div>
+          </div> --}}
+          <a href="{{ route('export.revenue') }}" class="bg-green-500/20 rounded-lg text-green-400 py-3 px-4">Export to
+            Excel</a>
         </div>
 
         <div class="h-80">
           <canvas id="revenueChart"></canvas>
         </div>
+
       </div>
     </div>
 
     <div class="bg-black text-white w-full p-8 rounded-xl mt-8">
-      <!-- Header -->
       <div class="flex items-center justify-between mb-6">
         <div>
           <h2 class="text-lg font-semibold">Products</h2>
@@ -111,16 +113,15 @@
         </a>
       </div>
 
-      <!-- Table -->
       <div class="overflow-x-auto">
         <table class="w-full border-collapse">
           <thead class="border-b border-white/10 text-sm text-white/50">
             <tr>
               <th class="text-left py-3">Product</th>
               <th class="text-left py-3">Category</th>
-              <th class="text-right py-3">Price</th>
+              <th class="text-left py-3">Price</th>
               <th class="text-center py-3">Stock</th>
-              <th class="text-right py-3">Status</th>
+              <th class="text-center py-3">Status</th>
             </tr>
           </thead>
 
@@ -132,7 +133,8 @@
                   <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}"
                     class="w-10 h-10 rounded-md object-cover {{ $product->stock == 0 ? 'grayscale' : '' }}">
                   <div>
-                    <a href="{{ route('product.product-detail.show', $product['slug']) }}" class="font-medium capitalize">
+                    <a href="{{ route('product.product-detail.show', $product['slug']) }}"
+                      class="font-medium capitalize">
                       {{ $product->name }}
                     </a>
                     <p class="text-xs text-white/40">
@@ -141,23 +143,19 @@
                   </div>
                 </td>
 
-                <!-- Category -->
                 <td class="py-4 text-white/70 capitalize">
                   {{ $product->category->name }}
                 </td>
 
-                <!-- Price -->
-                <td class="py-4 text-right font-[RobotoMono]">
+                <td class="py-4 text-start font-[RobotoMono]">
                   Rp.{{ number_format($product->price, 0, ',', '.') }}
                 </td>
 
-                <!-- Stock -->
                 <td class="py-4 text-center font-[RobotoMono]">
                   {{ $product->stock }}
                 </td>
 
-                <!-- Status -->
-                <td class="py-4 text-right">
+                <td class="py-4 text-center">
                   @if ($product->stock > 0)
                     <span class="px-2 py-1 text-xs rounded-md bg-green-500/10 text-green-400">
                       Available
