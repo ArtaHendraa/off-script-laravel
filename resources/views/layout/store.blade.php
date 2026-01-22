@@ -99,7 +99,7 @@
         </div>
       </div>
 
-      <div class="hidden xl:block max-w-6xl w-full absolute -bottom-79 left-1/2 -translate-x-1/2">
+      <div class="hidden xl:block max-w-6xl w-full absolute -bottom-79 left-1/2 -translate-x-1/2 opacity-50">
         <img src="/logo/x_logo.svg" alt="" class="w-full">
       </div>
     </section>
