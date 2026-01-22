@@ -22,7 +22,7 @@ class AdminProductController extends Controller
             "slug" => "required",
             "price" => "required|numeric",
             "sizes" => "required|array",
-            "image" => "required|image|mimes:webp",
+            "image" => "required",
             "description" => "required",
             "stock" => "required|integer|min:0",
             "category_id" => "required|exists:categories,id",
