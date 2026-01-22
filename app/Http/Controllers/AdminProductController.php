@@ -66,8 +66,8 @@ class AdminProductController extends Controller
 
         $product = Product::where("slug", $slug)->firstOrFail();
         $data = $request->validate([
-            "name" => "required|unique:products,name",
-            "slug" => "required|unique:products,slug",
+            "name" => "required",
+            "slug" => "required",
             "price" => "required|numeric",
             "sizes" => "required|array",
             "description" => "required",
