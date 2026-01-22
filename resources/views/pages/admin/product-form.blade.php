@@ -159,13 +159,25 @@
         }
       });
 
-      const existingDescription = @json(old('description', $product->description ?? ''));
-      if (existingDescription) {
-        quill.root.innerHTML = existingDescription;
+      // Convert old description array (if any) to HTML
+      let existingDescription = @json(old('description', $product->description ?? []));
+      if (Array.isArray(existingDescription)) {
+        existingDescription = existingDescription.join(''); // convert array to string
       }
 
-      document.querySelector('form').addEventListener('submit', () => {
-        document.getElementById('description').value = quill.root.innerHTML;
+      quill.root.innerHTML = existingDescription;
+
+      const form = document.querySelector('form');
+      const hiddenInput = document.getElementById('description');
+
+      // Make sure hidden input is always updated before submit
+      form.addEventListener('submit', function(e) {
+        hiddenInput.value = quill.root.innerHTML;
+      });
+
+      // Optional: update hidden input on every change (for extra reliability)
+      quill.on('text-change', function() {
+        hiddenInput.value = quill.root.innerHTML;
       });
     });
 

@@ -75,14 +75,6 @@ Route::get("/export-revenue", [AdminController::class, "exportExcel"])
     ->name("export.revenue")
     ->middleware("auth", "role:admin,god");
 
-//! Store Product
-Route::get("/admin/product/add", [AdminProductController::class, "index"])
-    ->name("admin.product.add")
-    ->middleware("auth", "role:admin,god");
-Route::post("/admin/product/add", [AdminProductController::class, "store"])
-    ->name("admin.product.store")
-    ->middleware("auth", "role:admin,god");
-
 //! Edit Product
 Route::get("/admin/product", [AdminProductController::class, "productsList"])
     ->name("admin.product.list")
@@ -98,6 +90,14 @@ Route::put("/admin/product/edit/{slug}", [
     "update",
 ])
     ->name("admin.product.update")
+    ->middleware("auth", "role:admin,god");
+
+//! Add Product
+Route::get("/admin/product/add", [AdminProductController::class, "index"])
+    ->name("admin.product.add")
+    ->middleware("auth", "role:admin,god");
+Route::post("/admin/product/add", [AdminProductController::class, "store"])
+    ->name("admin.product.store")
     ->middleware("auth", "role:admin,god");
 
 //! Delete Product

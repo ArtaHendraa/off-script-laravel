@@ -26,6 +26,6 @@ class Product extends Model
     protected $casts = [
         "sizes" => "array",
         "description" => "array",
-        "best_seller" => "boolean",
+        // "best_seller" => "boolean",
     ];
 }
