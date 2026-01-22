@@ -12,7 +12,7 @@
 
 <body>
   <main class="flex">
-    <section class="flex flex-col items-center justify-center flex-1">
+    <section class="flex flex-col items-center justify-center flex-1 px-5 xl:px-0 h-screen xl:h-auto">
       <a href="/" class="overflow-hidden">
         <svg class="h-auto w-full max-w-52" version="1.0" preserveAspectRatio="xMidYMid meet" height="1000"
           viewBox="0 0 1440 809.999993" zoomAndPan="magnify" width="1920" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -125,7 +125,7 @@
       @yield('auth-content')
     </section>
 
-    <section class="flex-1 border-l h-screen overflow-hidden">
+    <section class="hidden xl:block flex-1 border-l h-screen overflow-hidden">
       <img src="{{ asset('auth/side_ilustration.png') }}" alt="Auth Illustration"
         class="w-full h-full object-cover contrast-90">
     </section>
