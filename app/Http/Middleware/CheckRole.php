@@ -16,7 +16,7 @@ class CheckRole
     public function handle(Request $request, Closure $next, ...$roles): Response
     {
         if (!$request->user() || !in_array($request->user()->role, $roles)) {
-            abort(403, "HUSS HUSS, KAMU GA PUNYA IZIN.");
+            abort(403, "GET OUT!!.");
         }
 
         return $next($request);

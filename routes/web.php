@@ -31,6 +31,7 @@ Route::post("/logout", [AuthController::class, "logout"])
 
 // Store Page
 Route::get("/", [ProductController::class, "index"]);
+
 Route::redirect("/products", "/products/category/all");
 Route::redirect("/products/category", "/products/category/all");
 Route::get("products/category/{type_slug}", [
@@ -40,10 +41,6 @@ Route::get("products/category/{type_slug}", [
 Route::get("/products/{slug}", [ProductController::class, "show"])->name(
     "product.product-detail.show",
 );
-
-Route::get("/order/{order}/invoice", [OrderController::class, "invoice"])
-    ->middleware("auth")
-    ->name("order.invoice");
 
 // profile
 Route::get("/profile", [ProfileController::class, "index"])
@@ -66,6 +63,10 @@ Route::get("/checkout", [CheckoutController::class, "index"])
 Route::post("/checkout", [CheckoutController::class, "store"])
     ->middleware("auth")
     ->name("checkout.store");
+
+Route::get("/order/{order}/invoice", [OrderController::class, "invoice"])
+    ->middleware("auth")
+    ->name("order.invoice");
 
 //! Admin Page
 Route::get("/admin", [AdminController::class, "index"])

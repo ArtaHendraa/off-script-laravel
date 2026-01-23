@@ -9,8 +9,7 @@ class CartController extends Controller
 {
     public function index()
     {
-        $products = Product::with("category")->take(5)->get();
-        return view("pages.cart.cart", compact("products"));
+        return view("pages.cart.cart");
     }
 
     public function add(Product $product)

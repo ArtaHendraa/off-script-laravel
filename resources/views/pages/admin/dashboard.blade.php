@@ -99,7 +99,7 @@
       </div>
     </div>
 
-    <div class="bg-black text-white w-full p-8 rounded-xl mt-8">
+    <div class="bg-black text-white w-full p-8 rounded-xl mt-5">
       <div class="flex items-center justify-between mb-6">
         <div>
           <h2 class="text-lg font-semibold">Products</h2>
